@@ -1,0 +1,27 @@
+Portafolio de apoyo empresarial en CTI · UNE-CTI
+================================================
+
+index.html
+  El sitio completo en un solo archivo. Se abre con doble clic en cualquier navegador.
+
+Clasificacion_etapas_B20_revisada_bases.xlsx
+  Excel de insumos con: criterio experto (etapa de los 83 instrumentos, método, referencia y
+  fundamento), instrumentos incorporados desde referencias expertas, ajustes con sustento en
+  bases (resaltados con comentario y cita), revisión de alertas, fuentes a corregir, palabras
+  clave, fuentes consultadas y montos detectados.
+
+proyecto-fuente.zip
+  Código del sitio (React + Vite + Framer Motion), datos y scripts:
+    npm install            instala dependencias
+    npm run dev            sitio en modo desarrollo
+    npm run build          sitio estático en dist/
+    npm run build:single   un solo HTML en dist-single/
+  Actualizar datos (en este orden):
+    npm run data
+    python3 scripts/extraer_bases.py data-fuente/Clasificacion_etapas_B20_ajustada.xlsx
+    python3 scripts/revisar_clasificacion.py
+    python3 scripts/aplicar_revision_excel.py
+    npm run data
+    python3 scripts/aplicar_criterio_experto.py
+  Decisiones editables: data-fuente/criterio_experto.json, decisiones_revision_bases.json,
+  instrumentos_incorporados.json (incluye referencias excluidas, como Ceilab).
